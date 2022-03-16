@@ -6,6 +6,7 @@ metadata:
 type: Opaque
 data:
   EventHubs__ConnectionString: <EVENT HUBS CONNECTION STRING EM BASE 64>
+  EventHubs__ReplyConnectionString: <REPLY EVENT HUBS CONNECTION STRING EM BASE 64>
   EventHubs__BlobStorageConnectionString: <BLOB STORAGE ACCOUNT CONNECTION STRING EM BASE 64>
 ---
 apiVersion : apps/v1
@@ -33,6 +34,11 @@ spec:
               secretKeyRef:
                 name: worker-secret
                 key: EventHubs__ConnectionString
+          - name: EventHubs__ReplyConnectionString
+            valueFrom:
+              secretKeyRef:
+                name: worker-secret
+                key: EventHubs__ReplyConnectionString
           - name: EventHubs__BlobStorageConnectionString
             valueFrom:
               secretKeyRef:

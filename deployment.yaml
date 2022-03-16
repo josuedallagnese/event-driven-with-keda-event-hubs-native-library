@@ -1,0 +1,62 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: worker-secret
+  namespace: worker
+type: Opaque
+data:
+  EventHubs__ConnectionString: <EVENT HUBS CONNECTION STRING EM BASE 64>
+  EventHubs__BlobStorageConnectionString: <BLOB STORAGE ACCOUNT CONNECTION STRING EM BASE 64>
+---
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: worker-deployment
+  namespace: worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker-deployment
+  template:
+    metadata:
+      labels:
+        app: worker-deployment
+    spec:
+      containers:
+        - name: worker
+          image: josofd/event-driven-with-keda-event-hubs-native-library
+          imagePullPolicy: Always
+          env:
+          - name: EventHubs__ConnectionString
+            valueFrom:
+              secretKeyRef:
+                name: worker-secret
+                key: EventHubs__ConnectionString
+          - name: EventHubs__BlobStorageConnectionString
+            valueFrom:
+              secretKeyRef:
+                name: worker-secret
+                key: EventHubs__BlobStorageConnectionString
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: worker-scaled-object
+  namespace: worker
+spec:
+  scaleTargetRef:
+    name: worker-deployment
+  pollingInterval: 15
+  cooldownPeriod:  30
+  minReplicaCount: 0
+  maxReplicaCount: 2
+  triggers:
+  - type: azure-eventhub
+    metadata:
+      connectionFromEnv: EventHubs__ConnectionString
+      storageConnectionFromEnv: EventHubs__BlobStorageConnectionString
+      consumerGroup: $Default
+      unprocessedEventThreshold: '64'
+      blobContainer: keda-worker
+      checkpointStrategy: blobMetadata

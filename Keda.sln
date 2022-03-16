@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{16B313A4-2ABB-48C3-9C58-188B83265C22}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AC363D04-60A9-4486-8259-4BCB97FAB5CE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KedaWorker", "src\KedaWorker\KedaWorker.csproj", "{DA90C3EA-15D6-43C5-98DD-01898368CFE6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{F182CEF1-3C1D-4955-83CD-75391BF35F69}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Producer", "tools\Producer\Producer.csproj", "{7F400435-568C-49DE-90D5-95146F8E8E89}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "src\Shared\Shared.csproj", "{B17BFAD9-0A5F-4079-8939-1919A0C56653}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA90C3EA-15D6-43C5-98DD-01898368CFE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA90C3EA-15D6-43C5-98DD-01898368CFE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA90C3EA-15D6-43C5-98DD-01898368CFE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA90C3EA-15D6-43C5-98DD-01898368CFE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F400435-568C-49DE-90D5-95146F8E8E89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F400435-568C-49DE-90D5-95146F8E8E89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F400435-568C-49DE-90D5-95146F8E8E89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F400435-568C-49DE-90D5-95146F8E8E89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B17BFAD9-0A5F-4079-8939-1919A0C56653}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B17BFAD9-0A5F-4079-8939-1919A0C56653}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B17BFAD9-0A5F-4079-8939-1919A0C56653}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B17BFAD9-0A5F-4079-8939-1919A0C56653}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DA90C3EA-15D6-43C5-98DD-01898368CFE6} = {AC363D04-60A9-4486-8259-4BCB97FAB5CE}
+		{7F400435-568C-49DE-90D5-95146F8E8E89} = {F182CEF1-3C1D-4955-83CD-75391BF35F69}
+		{B17BFAD9-0A5F-4079-8939-1919A0C56653} = {AC363D04-60A9-4486-8259-4BCB97FAB5CE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A9D975A-1332-4A95-816C-91003C8C0F4C}
+	EndGlobalSection
+EndGlobal
